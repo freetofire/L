@@ -1145,19 +1145,11 @@
         }
         
         function shareLink() {
-            const shareText = `এই লিংক থেকে জয়েন করলে আপনি পাবেন ২০০ কয়েন বোনাস পাবেন এবং সেটা উত্তোলন করতে পারবেন:\nলিংক: https://yohs.com\nরেফারেল কোড: ${userData.referralCode}`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Join Free To Fire!',
-                    text: shareText,
-                    url: 'https://yohs.com'
-                }).catch((error) => console.error("Share failed:", error));
-            } else {
-                // Fallback to copying text
-                copyShareLink();
-            }
-        }
+    const shareText = `এই লিংক থেকে জয়েন করলে আপনি পাবেন ২০০ কয়েন বোনাস পাবেন এবং সেটা উত্তোলন করতে পারবেন:\nলিংক: https://t.me/FreetoFire_bot :\n রেফারেল কোড: ${userData.referralCode}`;
+    
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+    window.open(whatsappUrl, '_blank');
+}
 
         window.claimReward = async function(taskType) {
             // Check VPN before allowing any rewards
